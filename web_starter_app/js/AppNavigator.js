@@ -6,6 +6,8 @@ import {
 
 import Home from './components/home';
 import Storage from './components/storage';
+import ContactList from './components/contactlist';
+import ContactListDetails from './components/contactlistdetails';
 
 export default React.createClass({
 	render() {
@@ -19,6 +21,12 @@ export default React.createClass({
 					<Scene	key="storage"
 							title="My Files"
 							component={Storage} />
+					<Scene 	key="contactlist"
+							component={ContactList}
+							hideNavBar />
+					<Scene	key='details'
+							title='Details'
+							component={ContactListDetails} />
 				</Scene>
 			</Router>
 		)

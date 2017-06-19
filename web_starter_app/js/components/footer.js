@@ -22,6 +22,9 @@ export default React.createClass({
 					<Button onPress={() => Actions.storage({type: ActionConst.REPLACE })}>
 						<Icon name="ios-folder" />
 					</Button>
+					<Button onPress={() => Actions.contactlist({type: ActionConst.REPLACE })}>
+						<Icon name="ios-contacts" />
+					</Button>
 				</FooterTab>
 			</Footer>
 		)

@@ -7,8 +7,6 @@ import {
 	Button,
 } from 'native-base';
 
-
-
 import Camera from 'react-native-camera';  
 import Styles from '../resources/style';
 
