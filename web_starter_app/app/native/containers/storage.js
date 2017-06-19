@@ -14,9 +14,9 @@ import {
 
 import RNFS from 'react-native-fs';
 import { connect } from 'react-redux';
-import { fetchImages } from '../actions/imageActions';
+import { fetchImages } from '../../actions/imageActions';
 
-import Footer from './footer';
+import Footer from '../components/footer';
 
 var Storage = React.createClass({
 

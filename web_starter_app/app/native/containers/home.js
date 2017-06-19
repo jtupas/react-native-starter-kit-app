@@ -6,10 +6,9 @@ import {
 	Header,
 } from 'native-base';
 
-import Camera from './camera';  
-import Footer from './footer';
-import Styles from '../resources/style';
-import Drawer from './sidedrawer';
+import Camera from '../components/camera';  
+import Footer from '../components/footer';
+import Styles from '../../assets/style';
 
 export default React.createClass({
 	render() {

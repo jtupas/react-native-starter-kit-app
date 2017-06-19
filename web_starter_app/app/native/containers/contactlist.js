@@ -11,7 +11,7 @@ import {
 } from 'react-native-router-flux';
 
 import { connect } from 'react-redux';
-import { fetchUsers } from '../actions/contactActions';
+import { fetchUsers } from '../../actions/contactActions';
 
 import Header from '../components/header';
 import List from '../components/list';

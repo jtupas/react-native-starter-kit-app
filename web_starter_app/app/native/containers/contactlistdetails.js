@@ -15,7 +15,7 @@ import {
 } from 'react-native-router-flux';
 
 import { connect } from 'react-redux';
-import { didBeginFetching, addUser, updateUser, resetState } from '../actions/contactActions';
+import { didBeginFetching, addUser, updateUser, resetState } from '../../actions/contactActions';
 import { 
 	setFirstName,
 	setLastName, 
@@ -24,7 +24,7 @@ import {
 	setContactNumber, 
 	setAll,
 	setNew,
-} from '../actions/contactDetailActions'; 
+} from '../../actions/contactDetailActions'; 
 
 import Header from '../components/header';
 

@@ -1,4 +1,4 @@
-import strings from '../resources/strings';
+import strings from '../config/constants';
 
 import RNFS from 'react-native-fs';
 

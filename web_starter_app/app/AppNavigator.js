@@ -4,10 +4,10 @@ import {
 	Scene
 } from 'react-native-router-flux';
 
-import Home from './components/home';
-import Storage from './components/storage';
-import ContactList from './components/contactlist';
-import ContactListDetails from './components/contactlistdetails';
+import Home from './native/containers/home';
+import Storage from './native/containers/storage';
+import ContactList from './native/containers/contactlist';
+import ContactListDetails from './native/containers/contactlistdetails';
 
 export default React.createClass({
 	render() {

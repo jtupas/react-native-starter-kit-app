@@ -1,4 +1,4 @@
-import strings from '../resources/strings';
+import strings from '../config/constants';
 
 export default function reducer(state={
 

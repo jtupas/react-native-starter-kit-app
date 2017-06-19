@@ -8,7 +8,7 @@ import {
 } from 'native-base';
 
 import Camera from 'react-native-camera';  
-import Styles from '../resources/style';
+import Styles from '../../assets/style';
 
 export default React.createClass({
 	render() {

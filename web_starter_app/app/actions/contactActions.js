@@ -1,5 +1,5 @@
 import axios from 'axios';
-import strings from '../resources/strings';
+import strings from '../config/constants';
 
 export function didBeginFetching() {
 	return {
