@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-	Header,
 	Container,
 	Content,
 	Text,
@@ -11,11 +10,13 @@ import {
 	Body,
 	Thumbnail
 } from 'native-base';
+import strings from '../../config/constants';
 
 import RNFS from 'react-native-fs';
 import { connect } from 'react-redux';
 import { fetchImages } from '../../actions/imageActions';
-
+import { openDrawer } from '../../actions/drawerActions';
+import Header from '../components/header';
 import Footer from '../components/footer';
 
 var Storage = React.createClass({
@@ -27,7 +28,10 @@ var Storage = React.createClass({
 	render() {
 		return (
 			<Container>
-				<Header />
+				<Header 
+					headerTitle={strings.header_storage}
+					leftIcon={strings.icon_menu}
+					leftAction={ () => { this.props.openMenu() }} />
 				<List 	dataArray={this.props.imageList}
 						renderRow={(item) => 
 						<ListItem>
@@ -52,6 +56,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	fetch: () => dispatch(fetchImages()),
+	openMenu: () => dispatch(openDrawer())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Storage); 

@@ -9,9 +9,11 @@ import {
 	Actions,
 	ActionConst,
 } from 'react-native-router-flux';
+import strings from '../../config/constants';
 
 import { connect } from 'react-redux';
 import { fetchUsers } from '../../actions/contactActions';
+import { openDrawer } from '../../actions/drawerActions';
 
 import Header from '../components/header';
 import List from '../components/list';
@@ -33,9 +35,10 @@ var Main = React.createClass({
 		return (
 			<Container>
 				<Header 
-					headerTitle='Main' 
-					leftTitle='' 
-					rightTitle='Add' 
+					headerTitle={strings.header_contacts} 
+					leftIcon={strings.icon_menu}
+					leftAction={ () => { this.props.openMenu() }} 
+					rightIcon={strings.icon_add}
 					rightAction={ () => {Actions.details({user: null})}} />
 				<Content>
 					<List itemList={this.props.aList} />
@@ -52,6 +55,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	fetch: () => dispatch(fetchUsers()),
+	openMenu: () => dispatch(openDrawer()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main); 

@@ -16,7 +16,7 @@ export default React.createClass({
 		return (
 			<Footer>
 				<FooterTab>
-					<Button onPress={() => Actions.home({type: ActionConst.REPLACE })}>
+					<Button onPress={() => Actions.camera({type: ActionConst.REPLACE })}>
 						<Icon name="ios-image" />
 					</Button>
 					<Button onPress={() => Actions.storage({type: ActionConst.REPLACE })}>

@@ -13,6 +13,7 @@ import {
 	Actions,
 	ActionConst,
 } from 'react-native-router-flux';
+import strings from '../../config/constants';
 
 import { connect } from 'react-redux';
 import { didBeginFetching, addUser, updateUser, resetState } from '../../actions/contactActions';
@@ -56,7 +57,8 @@ var Details = React.createClass({
 		return (
 			<Container>
 				<Header headerTitle='Details' 
-					leftTitle='< Back' 
+					leftTitle='Back' 
+					leftIcon='ios-arrow-back'
 					leftAction={ () => {
 						this.props.setnew();
 						Actions.pop()}} 

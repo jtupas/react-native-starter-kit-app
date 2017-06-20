@@ -7,22 +7,42 @@ import {
     Text,
     Header,
 } from 'native-base';
+import {
+	Actions,
+	ActionConst,
+} from 'react-native-router-flux';
+import strings from '../../config/constants';
+import { connect } from 'react-redux';
+import { closeDrawer } from '../../actions/drawerActions';
 
-export default React.createClass({
+var sideBar = React.createClass({
     render() {
-        const testList = ['test1', 'test2'];
         return (
             <Container>
                 <Header />
                 <Content style={{ flex: 1, backgroundColor: '#fff', top: -1 }}>
-                    <List 	dataArray={testList}
-                            renderRow={(item) => 
-                            <ListItem button>
-                                <Text>{item}</Text>
-                            </ListItem> } >
+                    <List>
+                        <ListItem button onPress={() => {Actions.camera({type: ActionConst.REPLACE }); this.props.closeMenu();} }>
+                            <Text>{strings.header_camera}</Text>
+                        </ListItem>
+                        <ListItem button onPress={() => {Actions.storage({type: ActionConst.REPLACE }); this.props.closeMenu();} }>
+                            <Text>{strings.header_storage}</Text>
+                        </ListItem>
+                        <ListItem button onPress={() => {Actions.contactlist({type: ActionConst.REPLACE }); this.props.closeMenu();} }>
+                            <Text>{strings.header_contacts}</Text>
+                        </ListItem>
                     </List>
                 </Content>
             </Container>
         )
     }
 });
+
+const mapStateToProps = state => ({
+});
+
+const mapDispatchToProps = dispatch => ({
+	closeMenu: () => dispatch(closeDrawer()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(sideBar); 

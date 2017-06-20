@@ -30,6 +30,15 @@ module.exports = {
 	action_setID: 'SET_ID',
 
 	//MESSAGES
-	message_api_success: 'Success!'
+	message_api_success: 'Success!',
 
+	//ICONS
+	icon_menu: 'ios-menu',
+	icon_back: 'ios-arrow-back',
+	icon_add: 'ios-add',
+
+	//HEADER TITLES
+	header_camera: 'My Camera',
+	header_storage: 'My Storage',
+	header_contacts: 'My Contact',
 };
