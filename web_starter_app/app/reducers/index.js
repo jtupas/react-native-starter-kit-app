@@ -6,8 +6,8 @@ import contactDetail from './contactDetailReducer';
 import drawer from './drawerReducer';
 
 export default combineReducers({
-	drawer,
-	image,
-	contact,
-	contactDetail,
+  drawer,
+  image,
+  contact,
+  contactDetail,
 });

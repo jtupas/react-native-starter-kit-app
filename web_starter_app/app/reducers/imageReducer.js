@@ -1,15 +1,14 @@
 import strings from '../config/constants';
 
-export default function reducer(state={
+export default function reducer(state = {
 
-	imagePaths: []
+  imagePaths: [],
 
-	} , action) {
-
-		switch(action.type) {
-			case strings.action_fetch_images: 
-				return {...state, imagePaths: action.payload}
-				break;
-		}
-		return state;
-};
+}, action) {
+  switch (action.type) {
+    case strings.action_fetch_images:
+      return { ...state, imagePaths: action.payload };
+      break;
+  }
+  return state;
+}
