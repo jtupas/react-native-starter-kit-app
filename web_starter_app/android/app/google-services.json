@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "36157002984",
+    "firebase_url": "https://react-native-starter-kit-6ab14.firebaseio.com",
+    "project_id": "react-native-starter-kit-6ab14",
+    "storage_bucket": "react-native-starter-kit-6ab14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36157002984:android:23bf2b2532ae3059",
+        "android_client_info": {
+          "package_name": "com.web_starter_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36157002984-ubks6p1fkf2am0gbktn8frean35vs5ol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzr0A9a2HGkI9N35CIdj08bqlqhYk-9M8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
