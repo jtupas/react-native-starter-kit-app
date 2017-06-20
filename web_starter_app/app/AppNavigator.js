@@ -14,7 +14,6 @@ import Storage from './native/containers/storage';
 import ContactList from './native/containers/contactlist';
 import ContactListDetails from './native/containers/contactlistdetails';
 
-
 //Pages
 import Signup from './native/containers/Signup';
 import Login from './native/containers/Login';

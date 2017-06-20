@@ -30,6 +30,12 @@ module.exports = {
 	action_setID: 'SET_ID',
 
 	//MESSAGES
-	message_api_success: 'Success!'
+	message_api_success: 'Success!',
 
+  // LOGIN
+	action_setLoginEmail: 'SET_LOGIN_EMAIL',
+	action_setLoginPassword: 'SET_LOGIN_PASSWORD',
+	action_setLoginError: 'SET_LOGIN_ERROR',
+	action_setLoginLoading: 'SET_LOGIN_LOADING',
+	action_setUserData: 'SET_LOGIN_USERDATA'
 };
