@@ -13,59 +13,32 @@ import { Header, Title, Container, Content, List, ListItem, InputGroup, Input, I
 import styles from '../../assets/styles/mainstyle.js';
 import React, { Component } from 'react';
 import Login from './Login';
-import firebaseApp from '../../config/firebase'
 
-export default class Signup extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // used to display a progress indicator if waiting for a network response.
-      loading: false,
-      // entered credentials
-      email: '',
-      password: ''
-    }
-  }
-  // A method to passs the username and password to firebase and make a new user account
-  signup() {
-    this.setState({
-      // When waiting for the firebase server show the loading indicator.
-      loading: true
-    });
-    // Make a call to firebase to create a new user.
-    firebaseApp.auth().createUserWithEmailAndPassword(
-      this.state.email,
-      this.state.password).then(() => {
-        // then and catch are methods that we call on the Promise returned from
-        // createUserWithEmailAndPassword
-        alert('Your account was created!');
-        this.setState({
-          // Clear out the fields when the user logs in and hide the progress indicator.
-          email: '',
-          password: '',
-          loading: false
-        });
-        Actions.login();
-      }).catch((error) => {
-        // Leave the fields filled when an error occurs and hide the progress indicator.
-        this.setState({
-          loading: false
-        });
-        alert("Account creation failed: " + error.message);
-      });
-  }
+import { connect } from 'react-redux';
+import { setEmail, setPassword, setLoading, signup } from '../../actions/signupActions'
+
+var Signup = class Signup extends Component {
+
   render() {
+    if (this.props.signupPageErrorMsg === null || this.props.signupPageErrorMsg === undefined) { 
+    } else {
+      alert(this.props.signupPageErrorMsg);
+    }
+    if (this.props.signupPageSuccessMsg === null || this.props.signupPageSuccessMsg === undefined) { 
+    } else {
+      alert(this.props.signupPageSuccessMsg)
+    }
     // The content of the screen should be inputs for a username, password and submit button.
     // If we are loading then we display an ActivityIndicator.
-    const content = this.state.loading ? <ActivityIndicator size="large" /> :
+    const content = this.props.loginPageLoading ? <ActivityIndicator size="large" /> :
       <Content>
         <List>
           <ListItem>
             <InputGroup>
               <Icon name="ios-person" style={{ color: '#0A69FE' }} />
               <Input
-                onChangeText={(text) => this.setState({ email: text })}
-                value={this.state.email}
+                onChangeText={(text) => {this.props.signupPageSetEmail(text)}}
+                value={this.props.singupPageEmail}
                 placeholder={"Email Address"} />
             </InputGroup>
           </ListItem>
@@ -73,14 +46,16 @@ export default class Signup extends Component {
             <InputGroup>
               <Icon name="ios-unlock" style={{ color: '#0A69FE' }} />
               <Input
-                onChangeText={(text) => this.setState({ password: text })}
-                value={this.state.password}
+                onChangeText={(text) => {this.props.signupPageSetPassword(text)}}
+                value={this.props.signupPagePass}
                 secureTextEntry={true}
                 placeholder={"Password"} />
             </InputGroup>
           </ListItem>
         </List>
-        <Button style={styles.primaryButton} onPress={this.signup.bind(this)}>
+        <Button style={styles.primaryButton} onPress={() => this.props.signupPageSignup(
+          this.props.signupPageEmail, 
+          this.props.signupPagePass)}>
           <Text>
           Signup</Text>
               </Button>
@@ -104,4 +79,19 @@ export default class Signup extends Component {
     Actions.login();
   }
 }
-AppRegistry.registerComponent('Signup', () => Signup);
+
+const mapStateToProps = state => ({
+  signupPageEmail: state.signup.email,
+  signupPagePass: state.signup.password,
+  signupPageLoading: state.signup.loading,
+  signupPageErrorMsg: state.signup.errorMsg,
+  signupPageSuccessMsg: state.signup.successMsg
+});
+
+const mapDispatchToProps = dispatch => ({
+  signupPageSetEmail: (text) => dispatch(setEmail(text)),
+  signupPageSetPassword: (text) => dispatch(setPassword(text)),
+  signupPageSignup: (email, password) => dispatch(signup(email, password))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup); 

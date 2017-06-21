@@ -3,50 +3,51 @@ import firebaseApp from '../config/firebase';
 
 export function setEmail(text)  {
 	return {
-		type: strings.action_setLoginEmail,
+		type: strings.action_setSignupEmail,
 		payload: text
   }
 }
 
 export function setPassword(text) {
   return {
-    type: strings.action_setLoginPassword,
+    type: strings.action_setSignupPassword,
     payload: text
   }
 }
 
 export function setLoading(boolean) {
   return {
-    type: strings.action_setLoginLoading,
+    type: strings.action_setSignupLoading,
     payload: boolean
   }
 }
 
 export function setErrorMessage(text) {
   return {
-    type: strings.action_setLoginError,
+    type: strings.action_setSignupError,
     payload: text
   }
 }
 
-export function setUserData(data) {
+export function setSuccessMessage(text) {
   return {
-    type: strings.action_setUserData,
-    payload: data
+    type: strings.action_setSignupSuccess,
+    payload: text
   }
 }
 
-export function login(email, password) {
+export function signup(email, password) {
   return function(dispatch) {
     dispatch(setLoading(true))
-    firebaseApp.auth().signInWithEmailAndPassword(email, password)
-    .then((userData) => {
+    firebaseApp.auth().createUserWithEmailAndPassword(email, password)
+    .then(() => {
       dispatch(setLoading(false))
-      dispatch(setUserData(userData))
+      dispatch(setSuccessMessage('Account was created!'))
+      dispatch(setSuccessMessage(null))
     })
     .catch((error) => {
       dispatch(setLoading(false))
-      dispatch(setErrorMessage(error))
+      dispatch(setErrorMessage(error.message))
       dispatch(setErrorMessage(null))
     });
   }

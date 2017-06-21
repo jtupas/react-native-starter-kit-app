@@ -21,26 +21,23 @@ import styles from '../../assets/styles/mainstyle.js';
 
 import { setEmail, setPassword, setLoading, login } from '../../actions/loginActions'
 
-import firebaseApp from '../../config/firebase'
-
 var Login = class Login extends Component {
 
   saveUserData() {
-    console.log("save");
     if (this.props.loginPageUserData === null) {
-      console.log("save if");
     } else {
-      console.log("save else");
       AsyncStorage.setItem('userData', JSON.stringify(this.props.loginPageUserData));
       Actions.main({type: ActionConst.REPLACE })
     }
   }
 
   render() {
-    console.log("login")
     // The content of the screen should be inputs for a username, password and submit button.
     // If we are loading then we display an ActivityIndicator.
-    console.log("Loading " +  this.props.loginPageLoading);
+    if (this.props.loginPageErrorMsg === null || this.props.loginPageErrorMsg === undefined) {
+    } else {
+      alert(this.props.loginPageErrorMsg);
+    }
     const content = this.props.loginPageLoading ?
       <View style={styles.body}>
         <ActivityIndicator size="large" />
@@ -89,7 +86,7 @@ var Login = class Login extends Component {
       </Container>
     );
   }
-  
+
   // Go to the signup page
   goToSignup() {
     Actions.signUp();
@@ -107,7 +104,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loginPageSetEmail: (text) => dispatch(setEmail(text)),
   loginPageSetPassword: (text) => dispatch(setPassword(text)),
-  loginPageSetLoading: (boolean) => dispatch(setLoading(boolean)),
   loginPageLogin: (email, password) => dispatch(login(email, password))
 });
 

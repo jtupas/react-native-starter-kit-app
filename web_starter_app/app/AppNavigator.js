@@ -29,7 +29,6 @@ export default React.createClass({
 		};
 	},
 	componentWillMount() {
-		console.log("will mount")
 		//Check if userData is stored on device else open Login
 		AsyncStorage.getItem('userData').then((user_data_json) => {
 			console.log(user_data);
@@ -44,7 +43,6 @@ export default React.createClass({
 	},
 	render() {
 		if (this.state.openingPage) {
-			console.log(this.state.openingPage)
 			return (
 				<Router>
 					<Scene key="root">
