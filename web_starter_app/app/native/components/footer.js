@@ -25,6 +25,9 @@ export default React.createClass({
           <Button onPress={() => Actions.contactlist({ type: ActionConst.REPLACE })}>
             <Icon name="ios-contacts" />
           </Button>
+          <Button onPress={() => Actions.login({ type: ActionConst.REPLACE })}>
+            <Icon name="ios-bonfire" />
+          </Button>
         </FooterTab>
       </Footer>
     );

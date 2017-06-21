@@ -49,6 +49,15 @@ const sideBar = React.createClass({
             >
               <Text>{strings.header_contacts}</Text>
             </ListItem>
+            <ListItem
+              button
+              onPress={() => {
+                Actions.login({ type: ActionConst.REPLACE });
+                this.props.closeMenu();
+              }}
+            >
+              <Text>{strings.header_firebase}</Text>
+            </ListItem>
           </List>
         </Content>
       </Container>

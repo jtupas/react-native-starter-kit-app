@@ -29,6 +29,20 @@ module.exports = {
   action_reset: 'RESET',
   action_setID: 'SET_ID',
 
+// LOGIN
+  action_setLoginEmail: 'SET_LOGIN_EMAIL',
+  action_setLoginPassword: 'SET_LOGIN_PASSWORD',
+  action_setLoginError: 'SET_LOGIN_ERROR',
+  action_setLoginLoading: 'SET_LOGIN_LOADING',
+  action_setUserData: 'SET_LOGIN_USERDATA',
+
+// SIGNUP
+  action_setSignupEmail: 'SET_SIGNUP_EMAIL',
+  action_setSignupPassword: 'SET_SIGNUP_PASSWORD',
+  action_setSignupError: 'SET_SIGNUP_ERROR',
+  action_setSignupSuccess: 'SET_SIGNUP_SUCCESS',
+  action_setSignupLoading: 'SET_SIGNUP_LOADING',
+
 // MESSAGES
   message_api_success: 'Success!',
 
@@ -41,4 +55,5 @@ module.exports = {
   header_camera: 'My Camera',
   header_storage: 'My Storage',
   header_contacts: 'My Contact',
+  header_firebase: 'My Firebase',
 };

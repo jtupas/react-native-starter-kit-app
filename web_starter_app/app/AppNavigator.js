@@ -16,6 +16,9 @@ import Home from './native/containers/home';
 import Storage from './native/containers/storage';
 import ContactList from './native/containers/contactlist';
 import ContactListDetails from './native/containers/contactlistdetails';
+import Login from './native/containers/login';
+import SignUp from './native/containers/signup';
+import Main from './native/containers/main';
 
 const RouterWithRedux = connect()(Router);
 
@@ -38,7 +41,7 @@ const Navigation = React.createClass({
       this.drawer._root.close();
     }
     console.log(this.props.shouldOpen);
-  	},
+  },
 
   render() {
     return (
@@ -68,6 +71,18 @@ const Navigation = React.createClass({
             <Scene
               key="details"
               component={ContactListDetails}
+            />
+            <Scene
+              key="login"
+              component={Login}
+            />
+            <Scene
+              key="main"
+              component={Main}
+            />
+            <Scene
+              key="signup"
+              component={SignUp}
             />
           </Scene>
         </RouterWithRedux>
