@@ -13,7 +13,7 @@ import {
 } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import strings from '../../config/constants';
-import { closeDrawer } from '../../actions/drawerActions';
+import { closeDrawer } from '../../actions/drawer';
 
 const sideBar = React.createClass({
   render() {

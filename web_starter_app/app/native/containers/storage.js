@@ -11,10 +11,10 @@ import RNFS from 'react-native-fs';
 import { connect } from 'react-redux';
 
 import strings from '../../config/constants';
-import { fetchImages } from '../../actions/imageActions';
-import { openDrawer } from '../../actions/drawerActions';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import { fetchImages } from '../../actions/image';
+import { openDrawer } from '../../actions/drawer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Storage = React.createClass({
 

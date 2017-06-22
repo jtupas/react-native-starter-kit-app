@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import image from './imageReducer';
-import contact from './contactReducer';
-import contactDetail from './contactDetailReducer';
-import drawer from './drawerReducer';
-import login from './loginReducer';
-import signup from './signUpReducer';
+import image from './image';
+import contact from './contact';
+import contactDetail from './contact-detail';
+import drawer from './drawer';
+import login from './login';
+import signup from './sign-up';
 
 export default combineReducers({
   drawer,

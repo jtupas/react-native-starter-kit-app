@@ -9,9 +9,9 @@ import { connect } from 'react-redux';
 
 import { Header, Title, Container, Content, List, ListItem, InputGroup, Input, Icon, Text, Button } from 'native-base';
 import styles from '../../assets/styles/mainstyle';
-import Login from './login';
+import Login from './Login';
 
-import { setEmail, setPassword, signup } from '../../actions/signupActions';
+import { setEmail, setPassword, signup } from '../../actions/sign-up';
 
 const Signup = React.createClass({
 

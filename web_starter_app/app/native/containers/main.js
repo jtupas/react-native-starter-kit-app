@@ -13,7 +13,7 @@ import {
 } from 'react-native-router-flux';
 import React, { Component } from 'react';
 import { Header, Container, Title, Content, Button } from 'native-base';
-import Login from './login';
+import Login from './Login';
 import styles from '../../assets/styles/mainstyle';
 import firebaseApp from '../../config/firebase';
 

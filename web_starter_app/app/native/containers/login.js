@@ -12,11 +12,11 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import Signup from './signup';
-import Account from './main';
+import Signup from './Signup';
+import Account from './Main';
 import styles from '../../assets/styles/mainstyle.js';
 
-import { setEmail, setPassword, login } from '../../actions/loginActions';
+import { setEmail, setPassword, login } from '../../actions/login';
 
 const Login = React.createClass({
 

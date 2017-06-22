@@ -8,17 +8,17 @@ import {
 } from 'native-base';
 import { connect } from 'react-redux';
 
-import { closeDrawer } from './actions/drawerActions';
+import { closeDrawer } from './actions/drawer';
 
-import SideBar from './native/components/sidebar';
+import SideBar from './native/components/SideBar';
 
-import Home from './native/containers/home';
-import Storage from './native/containers/storage';
-import ContactList from './native/containers/contactlist';
-import ContactListDetails from './native/containers/contactlistdetails';
-import Login from './native/containers/login';
-import SignUp from './native/containers/signup';
-import Main from './native/containers/main';
+import Home from './native/containers/Home';
+import Storage from './native/containers/Storage';
+import ContactList from './native/containers/ContactList';
+import ContactListDetails from './native/containers/ContactListDetails';
+import Login from './native/containers/Login';
+import SignUp from './native/containers/SignUp';
+import Main from './native/containers/Main';
 
 const RouterWithRedux = connect()(Router);
 

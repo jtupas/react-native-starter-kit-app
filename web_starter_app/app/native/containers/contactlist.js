@@ -12,12 +12,12 @@ import { connect } from 'react-redux';
 
 import strings from '../../config/constants';
 
-import { fetchUsers } from '../../actions/contactActions';
-import { openDrawer } from '../../actions/drawerActions';
+import { fetchUsers } from '../../actions/contact';
+import { openDrawer } from '../../actions/drawer';
 
-import Header from '../components/header';
-import List from '../components/list';
-import Footer from '../components/footer';
+import Header from '../components/Header';
+import List from '../components/List';
+import Footer from '../components/Footer';
 
 
 const Main = React.createClass({

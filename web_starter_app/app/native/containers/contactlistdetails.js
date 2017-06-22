@@ -14,7 +14,7 @@ import {
 import { connect } from 'react-redux';
 
 
-import { addUser, updateUser, resetState } from '../../actions/contactActions';
+import { addUser, updateUser, resetState } from '../../actions/contact';
 import {
   setFirstName,
   setLastName,
@@ -23,9 +23,9 @@ import {
   setContactNumber,
   setAll,
   setNew,
-} from '../../actions/contactDetailActions';
+} from '../../actions/contact-detail';
 
-import Header from '../components/header';
+import Header from '../components/Header';
 
 const Details = React.createClass({
 

@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 
 import strings from '../../config/constants';
 
-import { openDrawer } from '../../actions/drawerActions';
+import { openDrawer } from '../../actions/drawer';
 
-import Camera from '../components/camera';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Camera from '../components/Camera';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const myCamera = React.createClass({
   render() {
