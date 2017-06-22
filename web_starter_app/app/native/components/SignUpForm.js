@@ -7,9 +7,6 @@ import {
   Button,
   Text,
 } from 'native-base';
-import {
-  Actions,
-} from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import {
   setEmail,
@@ -30,6 +27,7 @@ const SignUpForm = React.createClass({
           </Item>
           <Item last>
             <Input
+              secureTextEntry
               placeholder="Password"
               onChangeText={(text) => { this.props.signupPageSetPassword(text); }}
             />
@@ -43,14 +41,6 @@ const SignUpForm = React.createClass({
           }}
         >
           <Text>Sign Up</Text>
-        </Button>
-        <Button
-          style={{ marginTop: 10 }}
-          block
-          transparent
-          onPress={() => Actions.pop()}
-        >
-          <Text>Return to Log In</Text>
         </Button>
       </Content>
     );

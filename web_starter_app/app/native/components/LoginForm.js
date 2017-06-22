@@ -31,6 +31,7 @@ const LoginForm = React.createClass({
           </Item>
           <Item last>
             <Input
+              secureTextEntry
               placeholder="Password"
               onChangeText={(text) => { this.props.loginPageSetPassword(text); }}
             />

@@ -1,16 +1,19 @@
 import React from 'react';
 import {
   AsyncStorage,
+  Image,
 } from 'react-native';
 import {
   Container,
-  Spinner,
+  Thumbnail,
 } from 'native-base';
 import {
   Actions,
 } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import LoginForm from '../components/LoginForm';
+
+const imageLogo = require('../../assets/images/logo_react.png');
 
 const Login = React.createClass({
   renderAlert() {
@@ -32,8 +35,16 @@ const Login = React.createClass({
   },
   renderLoginForm() {
     return (
-      <Container style={{ marginTop: 50 }}>
-        <LoginForm />
+      <Container>
+        <Container style={{ marginTop: 50, alignItems: 'center', justifyContent: 'center' }}>
+          <Image
+            style={{ width: 250, height: 250 }}
+            source={imageLogo}
+          />
+        </Container>
+        <Container>
+          <LoginForm />
+        </Container>
       </Container>
     );
   },

@@ -39,7 +39,8 @@ export function login(email, password) {
       dispatch(setDrawerPage());
     })
     .catch((error) => {
-      dispatch(setErrorMessage(error));
+      dispatch(setLoginPage());
+      dispatch(setErrorMessage(error.message));
       dispatch(setErrorMessage(null));
     });
   };
@@ -55,7 +56,8 @@ export function signOut() {
         dispatch(setLoginPage());
       })
       .catch((error) => {
-        dispatch(setErrorMessage(error));
+        dispatch(setLoginPage());
+        dispatch(setErrorMessage(error.message));
       });
   };
 }

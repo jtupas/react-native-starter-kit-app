@@ -13,18 +13,18 @@ import {
 } from 'native-base';
 import { connect } from 'react-redux';
 
-import { closeDrawer } from './actions/drawer';
+import { closeDrawer } from '../../actions/drawer';
 
-import SideBar from './native/components/SideBar';
+import SideBar from '../components/SideBar';
 
-import Home from './native/containers/Home';
-import Storage from './native/containers/Storage';
-import ContactList from './native/containers/ContactList';
-import ContactListDetails from './native/containers/ContactListDetails';
-import Login from './native/containers/Login';
-import SignUp from './native/containers/SignUp';
+import Home from '../containers/Home';
+import Storage from '../containers/Storage';
+import ContactList from '../containers/ContactList';
+import ContactListDetails from '../containers/ContactListDetails';
+import Login from '../containers/Login';
+import SignUp from '../containers/SignUp';
 
-import { setDrawerPage, setLoginPage } from './actions/navigation';
+import { setDrawerPage, setLoginPage } from '../../actions/navigation';
 
 const RouterWithRedux = connect()(Router);
 
