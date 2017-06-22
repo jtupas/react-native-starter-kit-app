@@ -19,14 +19,6 @@ import {
 } from '../../actions/account';
 
 const LoginForm = React.createClass({
-  renderAlert() {
-    if (this.props.signupPageSuccessMsg) {
-      Actions.pop();
-      alert(this.props.signupPageSuccessMsg);
-    } else if (this.props.signupPageErrorMsg) {
-      alert(this.props.signupPageErrorMsg);
-    }
-  },
   render() {
     return (
       <Content>
