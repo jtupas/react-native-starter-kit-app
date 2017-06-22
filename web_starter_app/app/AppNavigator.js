@@ -1,10 +1,15 @@
 import React from 'react';
 import {
+  AsyncStorage,
+} from 'react-native';
+import {
   Router,
   Scene,
 } from 'react-native-router-flux';
 import {
+  Container,
   Drawer,
+  Spinner,
 } from 'native-base';
 import { connect } from 'react-redux';
 
@@ -18,32 +23,45 @@ import ContactList from './native/containers/ContactList';
 import ContactListDetails from './native/containers/ContactListDetails';
 import Login from './native/containers/Login';
 import SignUp from './native/containers/SignUp';
-import Main from './native/containers/Main';
+
+import { setDrawerPage, setLoginPage } from './actions/navigation';
 
 const RouterWithRedux = connect()(Router);
 
 const Navigation = React.createClass({
   closeDrawer() {
-    if (this.props.shouldOpen === true) {
+    if (this.props.shouldOpen === true && typeof this.drawer !== 'undefined') {
       this.drawer._root.close();
     }
     this.props.closeMenu();
   },
 
   openDrawer() {
-    this.drawer._root.open();
+    if (typeof this.drawer !== 'undefined') {
+      this.drawer._root.open();
+    }
+  },
+
+  componentWillMount() {
+    AsyncStorage.getItem('userData')
+    .then((userDataJson) => {
+      if (userDataJson) {
+        this.props.setNavigationRouter();
+      } else {
+        this.props.setLogin();
+      }
+    });
   },
 
   componentDidUpdate() {
     if (this.props.shouldOpen === true) {
       this.openDrawer();
-    } else {
+    } else if (this.drawer !== null && typeof this.drawer !== 'undefined') {
       this.drawer._root.close();
     }
-    console.log(this.props.shouldOpen);
   },
 
-  render() {
+  renderDrawer() {
     return (
       <Drawer
         ref={(ref) => { this.drawer = ref; }}
@@ -72,30 +90,59 @@ const Navigation = React.createClass({
               key="details"
               component={ContactListDetails}
             />
-            <Scene
-              key="login"
-              component={Login}
-            />
-            <Scene
-              key="main"
-              component={Main}
-            />
-            <Scene
-              key="signup"
-              component={SignUp}
-            />
           </Scene>
         </RouterWithRedux>
       </Drawer>
     );
   },
+
+  renderLogin() {
+    return (
+      // <Login />
+      <RouterWithRedux>
+        <Scene key="auth">
+          <Scene
+            key="login"
+            component={Login}
+            initial
+            hideNavBar
+          />
+          <Scene
+            key="signup"
+            component={SignUp}
+            hideNavBar
+          />
+        </Scene>
+      </RouterWithRedux>
+    );
+  },
+
+  renderSpinner() {
+    return (
+      <Container>
+        <Spinner />
+      </Container>
+    );
+  },
+
+  render() {
+    if (this.props.currentPage === 'Router') {
+      return this.renderDrawer();
+    } else if (this.props.currentPage === 'Login') {
+      return this.renderLogin();
+    }
+    return this.renderSpinner();
+  },
 });
 const mapStateToProps = state => ({
   shouldOpen: state.drawer.drawerOpen,
+  currentPage: state.navigation.page,
 });
 
 const mapDispatchToProps = dispatch => ({
   closeMenu: () => dispatch(closeDrawer()),
+  setNavigationRouter: () => dispatch(setDrawerPage()),
+  setLogin: () => dispatch(setLoginPage()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

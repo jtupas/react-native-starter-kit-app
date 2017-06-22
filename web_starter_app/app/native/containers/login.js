@@ -1,114 +1,55 @@
+import React from 'react';
 import {
   AsyncStorage,
-  View,
-  ActivityIndicator,
 } from 'react-native';
 import {
+  Container,
+  Spinner,
+} from 'native-base';
+import {
   Actions,
-  ActionConst,
 } from 'react-native-router-flux';
-import { Header, Container, Title, Content, List, ListItem, InputGroup, Input, Icon, Text, Picker, Button } from 'native-base';
-import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
-
-import Signup from './Signup';
-import Account from './Main';
-import styles from '../../assets/styles/mainstyle.js';
-
-import { setEmail, setPassword, login } from '../../actions/login';
+import LoginForm from '../components/LoginForm';
 
 const Login = React.createClass({
-
-  saveUserData() {
-    if (this.props.loginPageUserData === null) {
-    } else {
-      AsyncStorage.setItem('userData', JSON.stringify(this.props.loginPageUserData));
-      Actions.main({ type: ActionConst.REPLACE });
+  renderAlert() {
+    if (this.props.signupPageSuccessMsg) {
+      Actions.pop();
+      alert(this.props.signupPageSuccessMsg);
     }
-  },
-
-  render() {
-    // The content of the screen should be inputs for a username, password and submit button.
-    // If we are loading then we display an ActivityIndicator.
-    if (this.props.loginPageErrorMsg === null || this.props.loginPageErrorMsg === undefined) {
-    } else {
+    if (this.props.signupPageErrorMsg) {
+      alert(this.props.signupPageErrorMsg);
+    }
+    if (this.props.loginPageErrorMsg) {
       alert(this.props.loginPageErrorMsg);
     }
-    const content = this.props.loginPageLoading ?
-      (<View style={styles.body}>
-        <ActivityIndicator size="large" />
-      </View>) :
-      (<Content>
-        <List>
-          <ListItem>
-            <InputGroup>
-              <Icon name="ios-person" style={{ color: '#0A69FE' }} />
-              <Input
-                onChangeText={(text) => { this.props.loginPageSetEmail(text); }}
-                value={this.props.loginPageEmail}
-                placeholder={'Email Address'}
-              />
-            </InputGroup>
-          </ListItem>
-          <ListItem>
-            <InputGroup>
-              <Icon name="ios-unlock" style={{ color: '#0A69FE' }} />
-              <Input
-                onChangeText={(text) => { this.props.loginPageSetPassword(text); }}
-                value={this.props.loginPagePass}
-                secureTextEntry
-                placeholder={'Password'}
-              />
-            </InputGroup>
-          </ListItem>
-        </List>
-        <Button
-          style={styles.primaryButton}
-          onPress={() => {
-            this.props.loginPageLogin(this.props.loginPageEmail,
-            this.props.loginPagePass);
-          }}
-        >
-          <Text>
-          Login
-          </Text>
-        </Button>
-        <Button style={styles.primaryButton} onPress={this.goToSignup.bind(this)} >
-          <Text>Sign up</Text>
-        </Button>
-      </Content>)
-      ;
-    // A simple UI with a toolbar, and content below it.
+  },
+  saveUserData() {
+    if (this.props.loginPageUserData) {
+      AsyncStorage.setItem('userData', JSON.stringify(this.props.loginPageUserData));
+    }
+  },
+  renderLoginForm() {
     return (
-      <Container>
-        <Header>
-          <Title>Login</Title>
-        </Header>
-        {content}
-        {this.saveUserData()}
+      <Container style={{ marginTop: 50 }}>
+        <LoginForm />
       </Container>
     );
   },
-
-  // Go to the signup page
-  goToSignup() {
-    Actions.signup();
-  }
+  render() {
+    this.saveUserData();
+    this.renderAlert();
+    return this.renderLoginForm();
+  },
 });
 
 const mapStateToProps = state => ({
-  loginPageEmail: state.login.email,
-  loginPagePass: state.login.password,
-  loginPageLoading: state.login.loading,
-  loginPageErrorMsg: state.login.errorMsg,
-  loginPageUserData: state.login.userData,
+  loginPageUserData: state.account.userData,
+  signupPageErrorMsg: state.signup.errorMsg,
+  signupPageSuccessMsg: state.signup.successMsg,
+  loginPageErrorMsg: state.account.errorMsg,
 });
 
-const mapDispatchToProps = dispatch => ({
-  loginPageSetEmail: text => dispatch(setEmail(text)),
-  loginPageSetPassword: text => dispatch(setPassword(text)),
-  loginPageLogin: (email, password) => dispatch(login(email, password)),
-});
+export default connect(mapStateToProps)(Login);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);

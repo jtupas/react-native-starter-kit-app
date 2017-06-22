@@ -1,13 +1,11 @@
 import strings from '../config/constants';
 
 export default function reducer(state = {
-
-  imagePaths: [],
-
+  page: 'Spinner',
 }, action) {
   switch (action.type) {
-    case strings.action_fetch_images:
-      return { ...state, imagePaths: action.payload };
+    case strings.action_setParentPage:
+      return { ...state, page: action.payload };
     default:
       return state;
   }

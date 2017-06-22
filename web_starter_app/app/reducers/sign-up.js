@@ -10,19 +10,13 @@ export default function reducer(state = {
   switch (action.type) {
     case strings.action_setSignupEmail:
       return { ...state, email: action.payload };
-      break;
     case strings.action_setSignupPassword:
       return { ...state, password: action.payload };
-      break;
     case strings.action_setSignupError:
       return { ...state, errorMsg: action.payload };
-      break;
     case strings.action_setSignupSuccess:
       return { ...state, successMsg: action.payload };
-      break;
-    case strings.action_setSignupLoading:
-      return { ...state, loading: action.payload };
-      break;
+    default:
+      return state;
   }
-  return state;
 }

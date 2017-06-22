@@ -1,5 +1,6 @@
 import strings from '../config/constants';
 import firebaseApp from '../config/firebase';
+import { setLoginPage, setDrawerPage, setSpinner } from './navigation';
 
 export function setEmail(text) {
   return {
@@ -12,13 +13,6 @@ export function setPassword(text) {
   return {
     type: strings.action_setLoginPassword,
     payload: text,
-  };
-}
-
-export function setLoading(boolean) {
-  return {
-    type: strings.action_setLoginLoading,
-    payload: boolean,
   };
 }
 
@@ -38,16 +32,30 @@ export function setUserData(data) {
 
 export function login(email, password) {
   return function (dispatch) {
-    dispatch(setLoading(true));
+    dispatch(setSpinner());
     firebaseApp.auth().signInWithEmailAndPassword(email, password)
     .then((userData) => {
-      dispatch(setLoading(false));
       dispatch(setUserData(userData));
+      dispatch(setDrawerPage());
     })
     .catch((error) => {
-      dispatch(setLoading(false));
       dispatch(setErrorMessage(error));
       dispatch(setErrorMessage(null));
     });
+  };
+}
+
+export function signOut() {
+  return function (dispatch) {
+    dispatch(setSpinner());
+    firebaseApp.auth()
+      .signOut()
+      .then(() => {
+        dispatch(setUserData(null));
+        dispatch(setLoginPage());
+      })
+      .catch((error) => {
+        dispatch(setErrorMessage(error));
+      });
   };
 }

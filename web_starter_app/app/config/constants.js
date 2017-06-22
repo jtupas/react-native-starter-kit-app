@@ -10,6 +10,9 @@ module.exports = {
 // API
   base_url: 'https://chuck-nodejs-exercise1.herokuapp.com/api/contacts',
 
+// NAVIGATION ACTIONS
+  action_setParentPage: 'SET_PARENT_PAGE',
+
 // USER ACTIONS
   action_didBeginFetching: 'DID_BEGIN_FETCHING',
   action_fetchUsersFullfilled: 'FETCH_USERS_FULLFILLED',
@@ -33,7 +36,6 @@ module.exports = {
   action_setLoginEmail: 'SET_LOGIN_EMAIL',
   action_setLoginPassword: 'SET_LOGIN_PASSWORD',
   action_setLoginError: 'SET_LOGIN_ERROR',
-  action_setLoginLoading: 'SET_LOGIN_LOADING',
   action_setUserData: 'SET_LOGIN_USERDATA',
 
 // SIGNUP
@@ -41,7 +43,6 @@ module.exports = {
   action_setSignupPassword: 'SET_SIGNUP_PASSWORD',
   action_setSignupError: 'SET_SIGNUP_ERROR',
   action_setSignupSuccess: 'SET_SIGNUP_SUCCESS',
-  action_setSignupLoading: 'SET_SIGNUP_LOADING',
 
 // MESSAGES
   message_api_success: 'Success!',
@@ -55,5 +56,4 @@ module.exports = {
   header_camera: 'My Camera',
   header_storage: 'My Storage',
   header_contacts: 'My Contact',
-  header_firebase: 'My Firebase',
 };
