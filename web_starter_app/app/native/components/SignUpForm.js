@@ -19,7 +19,6 @@ import {
 
 const SignUpForm = React.createClass({
   render() {
-    this.renderAlert();
     return (
       <Content>
         <Form>
