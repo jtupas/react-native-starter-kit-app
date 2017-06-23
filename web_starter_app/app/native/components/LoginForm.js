@@ -9,9 +9,8 @@ import {
 } from 'native-base';
 import { connect } from 'react-redux';
 import {
-  Actions
+  Actions,
 } from 'react-native-router-flux';
-import strings from '../../config/constants';
 import {
   setEmail,
   setPassword,

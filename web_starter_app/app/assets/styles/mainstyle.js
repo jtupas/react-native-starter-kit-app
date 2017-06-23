@@ -1,9 +1,8 @@
-
-
 import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
+
 module.exports = StyleSheet.create({
   container1: {
     alignItems: 'stretch',

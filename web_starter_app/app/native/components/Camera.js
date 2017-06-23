@@ -34,7 +34,13 @@ export default React.createClass({
   createFile() {
     const options = {};
     this.camera.capture({ metadata: options })
-	   .then(data => console.log(data))
-	  .catch(err => console.error(err));
+      .then((data) => {
+        /* eslint-disable */
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err)
+        /* eslint-enable */
+      });
   },
 });

@@ -6,7 +6,6 @@ import {
 
 import {
   Actions,
-  ActionConst,
 } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 

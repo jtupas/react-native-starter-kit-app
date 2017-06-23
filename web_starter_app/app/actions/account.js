@@ -31,23 +31,23 @@ export function setUserData(data) {
 }
 
 export function login(email, password) {
-  return function (dispatch) {
+  return function returnLogin(dispatch) {
     dispatch(setSpinner());
     firebaseApp.auth().signInWithEmailAndPassword(email, password)
-    .then((userData) => {
-      dispatch(setUserData(userData));
-      dispatch(setDrawerPage());
-    })
-    .catch((error) => {
-      dispatch(setLoginPage());
-      dispatch(setErrorMessage(error.message));
-      dispatch(setErrorMessage(null));
-    });
+      .then((userData) => {
+        dispatch(setUserData(userData));
+        dispatch(setDrawerPage());
+      })
+      .catch((error) => {
+        dispatch(setLoginPage());
+        dispatch(setErrorMessage(error.message));
+        dispatch(setErrorMessage(null));
+      });
   };
 }
 
 export function signOut() {
-  return function (dispatch) {
+  return function returnSignOut(dispatch) {
     dispatch(setSpinner());
     firebaseApp.auth()
       .signOut()

@@ -31,20 +31,18 @@ export function setSuccessMessage(text) {
 }
 
 export function signup(email, password) {
-  return function (dispatch) {
+  return function returnSignUp(dispatch) {
     dispatch(setSpinner());
     firebaseApp.auth().createUserWithEmailAndPassword(email, password)
-    .then((data) => {
-      console.log(data);
-      dispatch(setLoginPage());
-      dispatch(setSuccessMessage('Account was created!'));
-      dispatch(setSuccessMessage(null));
-    })
-    .catch((error) => {
-      console.log(error.message);
-      dispatch(setLoginPage());
-      dispatch(setErrorMessage(error.message));
-      dispatch(setErrorMessage(null));
-    });
+      .then(() => {
+        dispatch(setLoginPage());
+        dispatch(setSuccessMessage('Account was created!'));
+        dispatch(setSuccessMessage(null));
+      })
+      .catch((error) => {
+        dispatch(setLoginPage());
+        dispatch(setErrorMessage(error.message));
+        dispatch(setErrorMessage(null));
+      });
   };
 }

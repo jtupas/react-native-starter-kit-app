@@ -3,13 +3,13 @@ import {
   AsyncStorage,
 } from 'react-native';
 import {
-    Container,
-    Content,
-    List,
-    ListItem,
-    Text,
-    Header,
-    Button,
+  Container,
+  Content,
+  List,
+  ListItem,
+  Text,
+  Header,
+  Button,
 } from 'native-base';
 import {
   Actions,
@@ -71,13 +71,12 @@ const sideBar = React.createClass({
       .then(() => {
         this.props.signOut();
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
       });
   },
 });
 
-const mapStateToProps = state => ({
+const mapStateToProps = () => ({
 });
 
 const mapDispatchToProps = dispatch => ({

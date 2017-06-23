@@ -14,6 +14,7 @@ import {
 import { connect } from 'react-redux';
 
 import { closeDrawer } from '../../actions/drawer';
+import { setUserData } from '../../actions/account';
 
 import SideBar from '../components/SideBar';
 
@@ -42,15 +43,21 @@ const Navigation = React.createClass({
     }
   },
 
+  saveUserData() {
+    if (this.props.loginPageUserData) {
+      AsyncStorage.setItem('userData', JSON.stringify(this.props.loginPageUserData));
+    }
+  },
+
   componentWillMount() {
     AsyncStorage.getItem('userData')
-    .then((userDataJson) => {
-      if (userDataJson) {
-        this.props.setNavigationRouter();
-      } else {
-        this.props.setLogin();
-      }
-    });
+      .then((userDataJson) => {
+        if (userDataJson) {
+          this.props.setNavigationRouter();
+        } else {
+          this.props.setLogin();
+        }
+      });
   },
 
   componentDidUpdate() {
@@ -119,7 +126,7 @@ const Navigation = React.createClass({
 
   renderSpinner() {
     return (
-      <Container>
+      <Container style={{ alignItems: 'center', justifyContent: 'center' }}>
         <Spinner />
       </Container>
     );
@@ -127,6 +134,7 @@ const Navigation = React.createClass({
 
   render() {
     if (this.props.currentPage === 'Router') {
+      this.saveUserData();
       return this.renderDrawer();
     } else if (this.props.currentPage === 'Login') {
       return this.renderLogin();
@@ -137,12 +145,14 @@ const Navigation = React.createClass({
 const mapStateToProps = state => ({
   shouldOpen: state.drawer.drawerOpen,
   currentPage: state.navigation.page,
+  loginPageUserData: state.account.userData,
 });
 
 const mapDispatchToProps = dispatch => ({
   closeMenu: () => dispatch(closeDrawer()),
   setNavigationRouter: () => dispatch(setDrawerPage()),
   setLogin: () => dispatch(setLoginPage()),
+  setUser: data => dispatch(setUserData(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

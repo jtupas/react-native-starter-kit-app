@@ -3,13 +3,11 @@ import {
   Container,
   Content,
   Item,
-  InputGroup,
   Input,
   Spinner,
 } from 'native-base';
 import {
   Actions,
-  ActionConst,
 } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 
@@ -46,7 +44,9 @@ const Details = React.createClass({
 
   renderAlert() {
     if (this.props.alertmessage) {
+      /* eslint-disable  */
       alert(this.props.alertmessage);
+      /* eslint-disable */
       this.props.resetAll();
     }
   },

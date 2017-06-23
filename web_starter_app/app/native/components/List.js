@@ -6,12 +6,11 @@ import {
 } from 'native-base';
 import {
   Actions,
-  ActionConst,
 } from 'react-native-router-flux';
 
 export default React.createClass({
   propTypes: {
-    itemList: PropTypes.array,
+    itemList: PropTypes.Array,
   },
 
   render() {
@@ -19,9 +18,9 @@ export default React.createClass({
       <List
         dataArray={this.props.itemList}
         renderRow={item =>
-  (<ListItem button onPress={() => Actions.details({ user: item })}>
-    <Text>{item.first_name}</Text>
-  </ListItem>)}
+          (<ListItem button onPress={() => Actions.details({ user: item })}>
+            <Text>{item.first_name}</Text>
+          </ListItem>)}
       />
     );
   },

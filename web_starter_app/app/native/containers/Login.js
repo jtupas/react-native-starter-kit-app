@@ -1,11 +1,9 @@
 import React from 'react';
 import {
-  AsyncStorage,
   Image,
 } from 'react-native';
 import {
   Container,
-  Thumbnail,
 } from 'native-base';
 import {
   Actions,
@@ -19,6 +17,7 @@ const Login = React.createClass({
   renderAlert() {
     if (this.props.signupPageSuccessMsg) {
       Actions.pop();
+      /* eslint-disable */
       alert(this.props.signupPageSuccessMsg);
     }
     if (this.props.signupPageErrorMsg) {
@@ -26,11 +25,7 @@ const Login = React.createClass({
     }
     if (this.props.loginPageErrorMsg) {
       alert(this.props.loginPageErrorMsg);
-    }
-  },
-  saveUserData() {
-    if (this.props.loginPageUserData) {
-      AsyncStorage.setItem('userData', JSON.stringify(this.props.loginPageUserData));
+      /* eslint-enable */
     }
   },
   renderLoginForm() {
@@ -49,7 +44,6 @@ const Login = React.createClass({
     );
   },
   render() {
-    this.saveUserData();
     this.renderAlert();
     return this.renderLoginForm();
   },

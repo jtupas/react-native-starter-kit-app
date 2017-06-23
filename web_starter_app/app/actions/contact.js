@@ -8,20 +8,20 @@ export function didBeginFetching() {
 }
 
 export function fetchUsers() {
-  return function (dispatch) {
+  return function returnFetchUsers(dispatch) {
     dispatch(didBeginFetching());
     axios.get(strings.base_url)
-    .then((response) => {
-      dispatch({ type: strings.action_fetchUsersFullfilled, payload: response.data });
-    })
-    .catch((err) => {
-      dispatch({ type: strings.action_fetchUsersRejected, payload: err });
-    });
+      .then((response) => {
+        dispatch({ type: strings.action_fetchUsersFullfilled, payload: response.data });
+      })
+      .catch((err) => {
+        dispatch({ type: strings.action_fetchUsersRejected, payload: err });
+      });
   };
 }
 
 export function addUser(data) {
-  return function (dispatch) {
+  return function returnAddUser(dispatch) {
     dispatch(didBeginFetching());
 
     axios.post(strings.base_url, {
@@ -31,18 +31,18 @@ export function addUser(data) {
       email: data.email,
       contact_number: data.contact_number,
     })
-    .then((response) => {
-      dispatch(fetchUsers());
-      dispatch({ type: strings.action_apiSuccess });
-    })
-    .catch((err) => {
-      dispatch({ type: strings.action_addUserRejected, payload: err });
-    });
+      .then(() => {
+        dispatch(fetchUsers());
+        dispatch({ type: strings.action_apiSuccess });
+      })
+      .catch((err) => {
+        dispatch({ type: strings.action_addUserRejected, payload: err });
+      });
   };
 }
 
 export function updateUser(data) {
-  return function (dispatch) {
+  return function returnUpdateUser(dispatch) {
     const url = `${strings.base_url}/${data._id}`;
 
     axios.put(url, {
@@ -52,14 +52,13 @@ export function updateUser(data) {
       email: data.email,
       contact_number: data.contact_number,
     })
-    .then((response) => {
-      dispatch(fetchUsers());
-      dispatch({ type: strings.action_apiSuccess });
-    })
-.catch((err) => {
-  console.log(err);
-  dispatch({ type: strings.action_updateUserRejected, payload: err });
-});
+      .then(() => {
+        dispatch(fetchUsers());
+        dispatch({ type: strings.action_apiSuccess });
+      })
+      .catch((err) => {
+        dispatch({ type: strings.action_updateUserRejected, payload: err });
+      });
   };
 }
 
