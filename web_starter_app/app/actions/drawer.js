@@ -2,12 +2,12 @@ import strings from '../config/constants';
 
 export function openDrawer() {
   return {
-    type: strings.open_drawer,
+    type: strings.OPEN_DRAWER,
   };
 }
 
 export function closeDrawer() {
   return {
-    type: strings.close_drawer,
+    type: strings.CLOSE_DRAWER,
   };
 }

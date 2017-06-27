@@ -8,13 +8,13 @@ export default function reducer(state = {
   userData: null,
 }, action) {
   switch (action.type) {
-    case strings.action_setLoginEmail:
+    case strings.ACTION_SET_LOGIN_EMAIL:
       return { ...state, email: action.payload };
-    case strings.action_setLoginPassword:
+    case strings.ACTION_SET_LOGIN_PASSWORD:
       return { ...state, password: action.payload };
-    case strings.action_setLoginError:
+    case strings.ACTION_SET_LOGIN_ERROR:
       return { ...state, errorMsg: action.payload };
-    case strings.action_setUserData:
+    case strings.ACTION_SET_LOGIN_USERDATA:
       return { ...state, userData: action.payload };
     default:
       return state;

@@ -1,11 +1,11 @@
 import strings from '../config/constants';
 
 export default function reducer(state = { drawerOpen: false }
-    , action) {
+  , action) {
   switch (action.type) {
-    case strings.open_drawer:
+    case strings.OPEN_DRAWER:
       return { ...state, drawerOpen: true };
-    case strings.close_drawer:
+    case strings.CLOSE_DRAWER:
       return { ...state, drawerOpen: false };
     default:
       return state;

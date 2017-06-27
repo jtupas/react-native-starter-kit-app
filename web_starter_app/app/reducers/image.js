@@ -6,7 +6,7 @@ export default function reducer(state = {
 
 }, action) {
   switch (action.type) {
-    case strings.action_fetch_images:
+    case strings.ACTION_FETCH_IMAGES:
       return { ...state, imagePaths: action.payload };
     default:
       return state;

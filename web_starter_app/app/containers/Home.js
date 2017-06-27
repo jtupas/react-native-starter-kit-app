@@ -17,8 +17,8 @@ const myCamera = React.createClass({
     return (
       <Container>
         <Header
-          headerTitle={strings.header_camera}
-          leftIcon={strings.icon_menu}
+          headerTitle={strings.HEADER_CAMERA}
+          leftIcon={strings.ICON_MENU}
           leftAction={() => { this.props.openMenu(); }}
         />
         <Camera />

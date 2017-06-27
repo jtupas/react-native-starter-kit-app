@@ -4,28 +4,28 @@ import { setSpinner, setLoginPage } from '../actions/navigation';
 
 export function setEmail(text) {
   return {
-    type: strings.action_setSignupEmail,
+    type: strings.ACTION_SET_SIGNUP_EMAIL,
     payload: text,
   };
 }
 
 export function setPassword(text) {
   return {
-    type: strings.action_setSignupPassword,
+    type: strings.ACTION_SET_SIGNUP_PASSWORD,
     payload: text,
   };
 }
 
 export function setErrorMessage(text) {
   return {
-    type: strings.action_setSignupError,
+    type: strings.ACTION_SET_SIGNUP_ERROR,
     payload: text,
   };
 }
 
 export function setSuccessMessage(text) {
   return {
-    type: strings.action_setSignupSuccess,
+    type: strings.ACTION_SET_SIGNUP_SUCCESS,
     payload: text,
   };
 }

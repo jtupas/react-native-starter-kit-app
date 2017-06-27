@@ -34,10 +34,10 @@ const Main = React.createClass({
     return (
       <Container>
         <Header
-          headerTitle={strings.header_contacts}
-          leftIcon={strings.icon_menu}
+          headerTitle={strings.HEADER_CONTACT}
+          leftIcon={strings.ICON_MENU}
           leftAction={() => { this.props.openMenu(); }}
-          rightIcon={strings.icon_add}
+          rightIcon={strings.ICON_ADD}
           rightAction={() => { Actions.details({ user: null }); }}
         />
         <Content>

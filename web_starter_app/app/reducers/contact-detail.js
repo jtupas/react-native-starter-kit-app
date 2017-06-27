@@ -10,19 +10,19 @@ export default function reducer(state = {
   isNew: true,
 }, action) {
   switch (action.type) {
-    case strings.action_setFirstName:
+    case strings.ACTION_SET_FIRST_NAME:
       return { ...state, first_name: action.payload };
-    case strings.action_setLastName:
+    case strings.ACTION_SET_LAST_NAME:
       return { ...state, last_name: action.payload };
-    case strings.action_setAddress:
+    case strings.ACTION_SET_ADDRESS:
       return { ...state, address: action.payload };
-    case strings.action_setEmail:
+    case strings.ACTION_SET_EMAIL:
       return { ...state, email: action.payload };
-    case strings.action_setContactNumber:
+    case strings.ACTION_SET_CONTACT_NUMBER:
       return { ...state, contact_number: action.payload };
-    case strings.action_setID:
+    case strings.ACTION_SET_ID:
       return { ...state, _id: action.payload };
-    case strings.action_setAll:
+    case strings.ACTION_SET_ALL:
       return {
         ...state,
         first_name: action.payload.first_name,
@@ -31,8 +31,9 @@ export default function reducer(state = {
         email: action.payload.email,
         contact_number: action.payload.contact_number,
         _id: action.payload._id,
-        isNew: false };
-    case strings.action_reset:
+        isNew: false,
+      };
+    case strings.ACTION_RESET:
       return {
         ...state,
         first_name: '',
@@ -41,8 +42,9 @@ export default function reducer(state = {
         email: '',
         contact_number: '',
         _id: '',
-        isNew: true };
-    default :
+        isNew: true,
+      };
+    default:
       return state;
   }
 }

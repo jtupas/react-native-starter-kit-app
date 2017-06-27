@@ -34,7 +34,7 @@ const sideBar = React.createClass({
                 this.props.closeMenu();
               }}
             >
-              <Text>{strings.header_camera}</Text>
+              <Text>{strings.HEADER_CAMERA}</Text>
             </ListItem>
             <ListItem
               button
@@ -43,7 +43,7 @@ const sideBar = React.createClass({
                 this.props.closeMenu();
               }}
             >
-              <Text>{strings.header_storage}</Text>
+              <Text>{strings.HEADER_STORAGE}</Text>
             </ListItem>
             <ListItem
               button
@@ -52,7 +52,7 @@ const sideBar = React.createClass({
                 this.props.closeMenu();
               }}
             >
-              <Text>{strings.header_contacts}</Text>
+              <Text>{strings.HEADER_CONTACT}</Text>
             </ListItem>
           </List>
         </Content>

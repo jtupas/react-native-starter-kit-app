@@ -1,59 +1,58 @@
 module.exports = {
-// DRAWER ACTIONS
-  open_drawer: 'OPEN_DRAWER',
-  close_drawer: 'CLOSE_DRAWER',
+  // DRAWER ACTIONS
+  OPEN_DRAWER: 'OPEN_DRAWER',
+  CLOSE_DRAWER: 'CLOSE_DRAWER',
 
-// IMAGE
-  action_fetch_images: 'FETCH_IMAGES',
-  action_test_fetch: 'FETCH_IMAGES_TEST',
+  // IMAGE
+  ACTION_FETCH_IMAGES: 'FETCH_IMAGES',
 
-// API
-  base_url: 'https://chuck-nodejs-exercise1.herokuapp.com/api/contacts',
+  // API
+  BASE_URL: 'https://chuck-nodejs-exercise1.herokuapp.com/api/contacts',
 
-// NAVIGATION ACTIONS
-  action_setParentPage: 'SET_PARENT_PAGE',
+  // NAVIGATION ACTIONS
+  ACTION_SET_PARENT_PAGE: 'SET_PARENT_PAGE',
 
-// USER ACTIONS
-  action_didBeginFetching: 'DID_BEGIN_FETCHING',
-  action_fetchUsersFullfilled: 'FETCH_USERS_FULLFILLED',
-  action_fetchUsersRejected: 'FETCH_USERS_REJECTED',
-  action_apiSuccess: 'API_SUCCESS',
-  action_addUserRejected: 'ADD_USER_REJECTED',
-  action_updateUserRejected: 'UPDATE_USER_REJECTED',
-  action_resetMessage: 'RESET_MESSAGE',
+  // USER ACTIONS
+  ACTION_DID_BEGIN_FETCHING: 'DID_BEGIN_FETCHING',
+  ACTION_FETCH_USERS_FULLFILLED: 'FETCH_USERS_FULLFILLED',
+  ACTION_FETCH_USERS_REJECTED: 'FETCH_USERS_REJECTED',
+  ACTION_API_SUCCESS: 'API_SUCCESS',
+  ACTION_ADD_USER_REJECTED: 'ADD_USER_REJECTED',
+  ACTION_UPDATE_USER_REJECTED: 'UPDATE_USER_REJECTED',
+  ACTION_RESET_MESSAGE: 'RESET_MESSAGE',
 
-// DETAIL ACTIONS
-  action_setFirstName: 'SET_FIRST_NAME',
-  action_setLastName: 'SET_LAST_NAME',
-  action_setAddress: 'SET_ADDRESS',
-  action_setEmail: 'SET_EMAIL',
-  action_setContactNumber: 'SET_CONTACT_NUMBER',
-  action_setAll: 'SET_ALL',
-  action_reset: 'RESET',
-  action_setID: 'SET_ID',
+  // DETAIL ACTIONS
+  ACTION_SET_FIRST_NAME: 'SET_FIRST_NAME',
+  ACTION_SET_LAST_NAME: 'SET_LAST_NAME',
+  ACTION_SET_ADDRESS: 'SET_ADDRESS',
+  ACTION_SET_EMAIL: 'SET_EMAIL',
+  ACTION_SET_CONTACT_NUMBER: 'SET_CONTACT_NUMBER',
+  ACTION_SET_ALL: 'SET_ALL',
+  ACTION_RESET: 'RESET',
+  ACTION_SET_ID: 'SET_ID',
 
-// LOGIN
-  action_setLoginEmail: 'SET_LOGIN_EMAIL',
-  action_setLoginPassword: 'SET_LOGIN_PASSWORD',
-  action_setLoginError: 'SET_LOGIN_ERROR',
-  action_setUserData: 'SET_LOGIN_USERDATA',
+  // LOGIN
+  ACTION_SET_LOGIN_EMAIL: 'SET_LOGIN_EMAIL',
+  ACTION_SET_LOGIN_PASSWORD: 'SET_LOGIN_PASSWORD',
+  ACTION_SET_LOGIN_ERROR: 'SET_LOGIN_ERROR',
+  ACTION_SET_LOGIN_USERDATA: 'SET_LOGIN_USERDATA',
 
-// SIGNUP
-  action_setSignupEmail: 'SET_SIGNUP_EMAIL',
-  action_setSignupPassword: 'SET_SIGNUP_PASSWORD',
-  action_setSignupError: 'SET_SIGNUP_ERROR',
-  action_setSignupSuccess: 'SET_SIGNUP_SUCCESS',
+  // SIGNUP
+  ACTION_SET_SIGNUP_EMAIL: 'SET_SIGNUP_EMAIL',
+  ACTION_SET_SIGNUP_PASSWORD: 'SET_SIGNUP_PASSWORD',
+  ACTION_SET_SIGNUP_ERROR: 'SET_SIGNUP_ERROR',
+  ACTION_SET_SIGNUP_SUCCESS: 'SET_SIGNUP_SUCCESS',
 
-// MESSAGES
-  message_api_success: 'Success!',
+  // MESSAGES
+  MESSAGE_API_SUCCESS: 'Success!',
 
-// ICONS
-  icon_menu: 'ios-menu',
-  icon_back: 'ios-arrow-back',
-  icon_add: 'ios-add',
+  // ICONS
+  ICON_MENU: 'ios-menu',
+  ICON_BACK: 'ios-arrow-back',
+  ICON_ADD: 'ios-add',
 
-// HEADER TITLES
-  header_camera: 'My Camera',
-  header_storage: 'My Storage',
-  header_contacts: 'My Contact',
+  // HEADER TITLES
+  HEADER_CAMERA: 'My Camera',
+  HEADER_STORAGE: 'My Storage',
+  HEADER_CONTACT: 'My Contact',
 };
