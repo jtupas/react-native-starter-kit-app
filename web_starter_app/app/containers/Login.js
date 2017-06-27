@@ -11,7 +11,7 @@ import {
 import { connect } from 'react-redux';
 import LoginForm from '../components/LoginForm';
 
-const imageLogo = require('../../assets/images/logo_react.png');
+const imageLogo = require('../assets/images/logo_react.png');
 
 const Login = React.createClass({
   renderAlert() {

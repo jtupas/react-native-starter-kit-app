@@ -15,7 +15,7 @@ import {
   setEmail,
   setPassword,
   login,
-} from '../../actions/account';
+} from '../actions/account';
 
 const LoginForm = React.createClass({
   render() {

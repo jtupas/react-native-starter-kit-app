@@ -12,7 +12,7 @@ import {
   setEmail,
   setPassword,
   signup,
-} from '../../actions/sign-up';
+} from '../actions/sign-up';
 
 const SignUpForm = React.createClass({
   render() {

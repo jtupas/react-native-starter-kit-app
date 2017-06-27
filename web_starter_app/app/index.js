@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 import reducer from './reducers';
-import AppNavigator from './native/containers/AppNavigator';
+import AppNavigator from './containers/AppNavigator';
 
 const middleware = applyMiddleware(thunk, logger);
 

@@ -12,7 +12,7 @@ import {
 import { connect } from 'react-redux';
 
 
-import { addUser, updateUser, resetState } from '../../actions/contact';
+import { addUser, updateUser, resetState } from '../actions/contact';
 import {
   setFirstName,
   setLastName,
@@ -21,7 +21,7 @@ import {
   setContactNumber,
   setAll,
   setNew,
-} from '../../actions/contact-detail';
+} from '../actions/contact-detail';
 
 import Header from '../components/Header';
 

@@ -16,9 +16,9 @@ import {
   ActionConst,
 } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import strings from '../../config/constants';
-import { closeDrawer } from '../../actions/drawer';
-import { signOut } from '../../actions/account';
+import strings from '../config/constants';
+import { closeDrawer } from '../actions/drawer';
+import { signOut } from '../actions/account';
 
 const sideBar = React.createClass({
   render() {

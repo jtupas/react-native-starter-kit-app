@@ -9,10 +9,10 @@ import {
 } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 
-import strings from '../../config/constants';
+import strings from '../config/constants';
 
-import { fetchUsers } from '../../actions/contact';
-import { openDrawer } from '../../actions/drawer';
+import { fetchUsers } from '../actions/contact';
+import { openDrawer } from '../actions/drawer';
 
 import Header from '../components/Header';
 import List from '../components/List';

@@ -10,9 +10,9 @@ import {
 import RNFS from 'react-native-fs';
 import { connect } from 'react-redux';
 
-import strings from '../../config/constants';
-import { fetchImages } from '../../actions/image';
-import { openDrawer } from '../../actions/drawer';
+import strings from '../config/constants';
+import { fetchImages } from '../actions/image';
+import { openDrawer } from '../actions/drawer';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -33,16 +33,16 @@ const Storage = React.createClass({
         <List
           dataArray={this.props.imageList}
           renderRow={item =>
-  (<ListItem>
-    <Thumbnail
-      square
-      size={80}
-      source={{ uri: `file://${RNFS.DocumentDirectoryPath}/${item}` }}
-    />
-    <Body>
-      <Text>{item}</Text>
-    </Body>
-  </ListItem>)}
+            (<ListItem>
+              <Thumbnail
+                square
+                size={80}
+                source={{ uri: `file://${RNFS.DocumentDirectoryPath}/${item}` }}
+              />
+              <Body>
+                <Text>{item}</Text>
+              </Body>
+            </ListItem>)}
         />
         <Footer />
       </Container>

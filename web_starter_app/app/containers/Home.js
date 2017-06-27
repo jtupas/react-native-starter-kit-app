@@ -4,9 +4,9 @@ import {
 } from 'native-base';
 import { connect } from 'react-redux';
 
-import strings from '../../config/constants';
+import strings from '../config/constants';
 
-import { openDrawer } from '../../actions/drawer';
+import { openDrawer } from '../actions/drawer';
 
 import Camera from '../components/Camera';
 import Header from '../components/Header';

@@ -13,8 +13,8 @@ import {
 } from 'native-base';
 import { connect } from 'react-redux';
 
-import { closeDrawer } from '../../actions/drawer';
-import { setUserData } from '../../actions/account';
+import { closeDrawer } from '../actions/drawer';
+import { setUserData } from '../actions/account';
 
 import SideBar from '../components/SideBar';
 
@@ -25,7 +25,7 @@ import ContactListDetails from '../containers/ContactListDetails';
 import Login from '../containers/Login';
 import SignUp from '../containers/SignUp';
 
-import { setDrawerPage, setLoginPage } from '../../actions/navigation';
+import { setDrawerPage, setLoginPage } from '../actions/navigation';
 
 const RouterWithRedux = connect()(Router);
 
