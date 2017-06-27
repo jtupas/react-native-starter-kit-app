@@ -1,9 +1,11 @@
 import * as firebase from 'firebase';
+/* eslint import/no-extraneous-dependencies: ["error", {"peerDependencies": true}] */
+import { API_KEY, AUTH_DOMAIN, DATABASE_URL } from 'react-native-dotenv';
 
 const firebaseApp = firebase.initializeApp({
-  apiKey: 'AIzaSyDWDsZlyRxCcZirdwUno8bMeVxvtlviHDo',
-  authDomain: 'react-native-starter-kit-6ab14.firebaseapp.com',
-  databaseURL: 'https://react-native-starter-kit-6ab14.firebaseio.com/',
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  databaseURL: DATABASE_URL,
 });
 
 export default firebaseApp;
